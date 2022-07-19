@@ -6,5 +6,3 @@ from pprint import pprint
 
 if(octoprint_api.get_any_printing() == False):
   os.system('reboot')
-else:
-  print("No reboot")
