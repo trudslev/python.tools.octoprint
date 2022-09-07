@@ -24,7 +24,10 @@ def port_open(host, port):
 
 def get_printer_printing(host, port, api_key):
   response = requests.get("http://" + host + ":" + str(port) + '/api/printer', headers={"X-Api-Key":api_key})
-  return response.json()['state']['flags']['printing']
+  json = response.json()
+  if 'error' in json:
+    return False
+  return json['state']['flags']['printing']
 
 config = configparser.ConfigParser()
 config.read('octoprint.conf')

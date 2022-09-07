@@ -4,4 +4,5 @@ import octoprint_api
 import os
 
 if(octoprint_api.get_any_printing() == False):
-  os.system('/usr/sbin/reboot')
+  #os.system('/usr/sbin/reboot')
+  print('reboot');
